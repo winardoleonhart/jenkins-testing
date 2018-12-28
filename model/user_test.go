@@ -3,7 +3,7 @@ package model
 import (
 	"testing"
 
-	mock "github.com/hemat/model/mocks"
+	mock "github.com/jenkins-testing/model/mocks"
 	"github.com/stretchr/testify/assert"
 )
 
