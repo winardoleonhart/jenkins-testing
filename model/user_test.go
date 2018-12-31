@@ -65,21 +65,19 @@ func TestGetFromDatabase(t *testing.T) {
 
 	assert.Error(t, err)
 
-	// fake2 := []fakeStruct{
-	// 	fakeStruct{
-	// 		name: "Samsul 1",
-	// 		age:  11,
-	// 	},
-	// 	fakeStruct{
-	// 		name: "Samsul 2",
-	// 		age:  12,
-	// 	},
-	// }
+	fake2 := []fakeStruct{
+		fakeStruct{
+			name: "Samsul 1",
+		},
+		fakeStruct{
+			name: "Samsul 2",
+		},
+	}
 
-	// res, errSec2 := GetFromDatabase(&fake2)
+	res, errSec2 := GetFromDatabase(&fake2)
 
-	// assert.NoError(t, errSec2)
-	// assert.Len(t, res, 1)
+	assert.NoError(t, errSec2)
+	assert.Len(t, res, 2)
 
 	newParams := []map[string]string{
 		map[string]string{"name": "paijo", "age": "20"},
