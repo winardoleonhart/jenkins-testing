@@ -101,14 +101,8 @@ func GetFromDatabase(params interface{}) ([]map[string]string, error) {
 		if reflect.TypeOf(i).Kind() == reflect.Struct {
 			for j := 0; j < i.NumField(); j++ {
 				st := i.Type().Field(j)
-<<<<<<< HEAD
-				newMap := map[string]string{
-					string(st.Name): string(i.Field(j).String()),
-=======
-				fmt.Println(i, i.Interface())
 				newMap := map[string]string{
 					string(st.Name): i.Field(j).String(),
->>>>>>> d1107c425ee0ae262158e521a0d5770c0f786265
 				}
 				result = append(result, newMap)
 			}
