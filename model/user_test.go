@@ -81,11 +81,12 @@ func TestGetFromDatabase(t *testing.T) {
 
 	newParams := []map[string]string{
 		map[string]string{"name": "paijo", "age": "20"},
+		map[string]string{"name": "winardo", "age": "30"},
 	}
 
 	resC, errC := GetFromDatabase(newParams)
 	assert.NoError(t, errC)
-	assert.Len(t, resC, 1)
+	assert.Len(t, resC, 2)
 
 	res3, err3 := GetFromDatabase(fakeStruct{})
 	assert.NoError(t, err3)
