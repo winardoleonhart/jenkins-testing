@@ -98,18 +98,17 @@ func GetFromDatabase(params interface{}) ([]map[string]string, error) {
 			continue
 		}
 
-		// if reflect.TypeOf(i).Kind() == reflect.Struct {
-		// 	for j := 0; j < i.NumField(); j++ {
-		// 		// st := i.Type().Field(j)
-		// 		fmt.Println(i, i.Interface())
-		// 		// newMap := map[string]string{
-		// 		// 	string(st.Name): string("a"),
-		// 		// }
-		// 		// fmt.Println(newMap)
-		// 		// result = append(result, newMap)
-		// 	}
-		// 	er = nil
-		// }
+		if reflect.TypeOf(i).Kind() == reflect.Struct {
+			for j := 0; j < i.NumField(); j++ {
+				st := i.Type().Field(j)
+				fmt.Println(i, i.Interface())
+				newMap := map[string]string{
+					string(st.Name): i.Field(j).String(),
+				}
+				result = append(result, newMap)
+			}
+			er = nil
+		}
 
 	}
 
